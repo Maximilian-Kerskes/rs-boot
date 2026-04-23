@@ -1,0 +1,7 @@
+/target
+/qemu-testing/OVMF_CODE_4M.fd
+/qemu-testing/OVMF_VARS_4M.fd
+/qemu-testing/esp/vmlinuz
+/qemu-testing/esp/initrd.img
+
+
