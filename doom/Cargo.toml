@@ -5,3 +5,6 @@ edition = "2024"
 
 [dependencies]
 r-efi = "6.0.0"
+
+[build-dependencies]
+cc = "1.2.61"
