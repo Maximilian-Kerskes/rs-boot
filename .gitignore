@@ -1,7 +1,9 @@
 /target
-/qemu-testing/OVMF_CODE_4M.fd
-/qemu-testing/OVMF_VARS_4M.fd
-/qemu-testing/esp/vmlinuz
-/qemu-testing/esp/initrd.img
+bootloader/mock-efi/
+*.fd
+NvVars
+*.img
+vmlinuz
+initrd.img
 
 

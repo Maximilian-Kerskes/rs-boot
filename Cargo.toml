@@ -1,7 +1,5 @@
-[package]
-name = "rs-boot"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-r-efi = "6.0.0"
+[workspace]
+members = [
+		"bootloader",
+		"doom"
+]
