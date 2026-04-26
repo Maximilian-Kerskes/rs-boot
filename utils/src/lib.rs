@@ -2,6 +2,42 @@
 
 use r_efi::efi;
 
+// UEFI Utilities
+pub unsafe fn locate_protocol<P>(
+    bs: *mut efi::BootServices,
+    guid: *mut efi::Guid,
+) -> Result<*mut P, efi::Status> {
+    unsafe {
+        let mut protocol: *mut P = core::ptr::null_mut();
+
+        let status =
+            ((*bs).locate_protocol)(guid, core::ptr::null_mut(), &mut protocol as *mut _ as *mut _);
+
+        if status.is_error() {
+            return Err(status);
+        }
+
+        Ok(protocol)
+    }
+}
+pub unsafe fn handle_protocol<P>(
+    bs: *mut efi::BootServices,
+    handle: efi::Handle,
+    guid: *mut efi::Guid,
+) -> Result<*mut P, efi::Status> {
+    unsafe {
+        let mut protocol: *mut P = core::ptr::null_mut();
+
+        let status = ((*bs).handle_protocol)(handle, guid, &mut protocol as *mut _ as *mut _);
+
+        if status.is_error() {
+            return Err(status);
+        }
+
+        Ok(protocol)
+    }
+}
+
 pub fn utf16_cstring<const N: usize>(s: &str) -> [u16; N] {
     let mut buf = [0u16; N];
     let mut len = 0;

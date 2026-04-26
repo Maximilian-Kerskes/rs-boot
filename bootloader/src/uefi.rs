@@ -1,41 +1,6 @@
 use r_efi::efi;
 
-use utils::utf16_cstring;
-
-pub unsafe fn locate_protocol<P>(
-    bs: *mut efi::BootServices,
-    guid: *mut efi::Guid,
-) -> Result<*mut P, efi::Status> {
-    unsafe {
-        let mut protocol: *mut P = core::ptr::null_mut();
-
-        let status =
-            ((*bs).locate_protocol)(guid, core::ptr::null_mut(), &mut protocol as *mut _ as *mut _);
-
-        if status.is_error() {
-            return Err(status);
-        }
-
-        Ok(protocol)
-    }
-}
-pub unsafe fn handle_protocol<P>(
-    bs: *mut efi::BootServices,
-    handle: efi::Handle,
-    guid: *mut efi::Guid,
-) -> Result<*mut P, efi::Status> {
-    unsafe {
-        let mut protocol: *mut P = core::ptr::null_mut();
-
-        let status = ((*bs).handle_protocol)(handle, guid, &mut protocol as *mut _ as *mut _);
-
-        if status.is_error() {
-            return Err(status);
-        }
-
-        Ok(protocol)
-    }
-}
+use utils::{handle_protocol, locate_protocol, utf16_cstring};
 
 pub unsafe fn get_base_path(
     bs: *mut efi::BootServices,
