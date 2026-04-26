@@ -1,9 +1,8 @@
 /target
-bootloader/mock-efi/
-*.fd
-NvVars
-*.img
-vmlinuz
-initrd.img
+bootloader/mock-efi/*.fd
+bootloader/mock-efi/esp/NvVars
+bootloader/mock-efi/*.img
+bootloader/mock-efi/vmlinuz
+bootloader/mock-efi/initrd.img
 
 
