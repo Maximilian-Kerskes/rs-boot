@@ -5,3 +5,4 @@ edition = "2024"
 
 [dependencies]
 r-efi = "6.0.0"
+utils = { path = "../utils/"}

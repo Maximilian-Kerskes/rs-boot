@@ -2,7 +2,7 @@
 bootloader/mock-efi/*.fd
 bootloader/mock-efi/esp/NvVars
 bootloader/mock-efi/*.img
-bootloader/mock-efi/vmlinuz
-bootloader/mock-efi/initrd.img
+bootloader/mock-efi/esp/vmlinuz
+bootloader/mock-efi/esp/initrd.img
 
 

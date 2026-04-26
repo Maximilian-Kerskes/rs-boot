@@ -2,15 +2,13 @@
 #![no_main]
 
 mod uefi;
-mod utils;
 
 use r_efi::efi;
-use utils::print;
+use utils::{print, utf16_cstring};
 
 use crate::uefi::{
     build_kernel_device_path, handle_protocol, load_cmdline_options, load_kernel, start_kernel,
 };
-use crate::utils::utf16_cstring;
 
 #[panic_handler]
 fn panic_handler(_info: &core::panic::PanicInfo) -> ! {

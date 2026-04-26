@@ -1,6 +1,6 @@
 use r_efi::efi;
 
-use crate::utils::utf16_cstring;
+use utils::utf16_cstring;
 
 pub unsafe fn locate_protocol<P>(
     bs: *mut efi::BootServices,
